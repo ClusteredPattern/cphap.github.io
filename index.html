@@ -1,16 +1,132 @@
 <!DOCTYPE html>
+<html lang="en">
+<title>CPHAP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:150px}
+.w3-red, .w3-hover-red:hover {
+    color: #fff!important;
+    background-color: #3DB7CC!important;
+}
+</style>
 <body>
-  <h1>Clustered Pattern Highly Activated Period </h1>
-  <h3> Sleep Signal Segmentation Task </h3>
-  <img src="seg_cluster.png">
-  <img src="seg_pattern.PNG" width="500">
-  <br>
-  <a href="sleep_segmnettaion.html">more examples</a>
-  
-  <br>
-  <h3> Time Series Classification Task </h3>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#CPHAP" class="w3-bar-item w3-button w3-padding-large w3-white">CPHAP</a>
+    <a href="#Exp1" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Exp 1</a>
+    <a href="#Exp2" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Exp 2</a>
+    <a href="#Exp3" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Exp 3</a>
+    <a href="#Exp4" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Exp 4</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#Exp1" class="w3-bar-item w3-button w3-padding-large">Exp 1</a>
+    <a href="#Exp2" class="w3-bar-item w3-button w3-padding-large">Exp 2</a>
+    <a href="#Exp3" class="w3-bar-item w3-button w3-padding-large">Exp 3</a>
+    <a href="#Exp4" class="w3-bar-item w3-button w3-padding-large">Exp 4</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:80px 10px">
+  <h3 class="w3-margin w3-jumbo" ><strong> Clustered Pattern of Highly Activated Nodes </strong></h3>
+  <p class="w3-xlarge"><a href="https://arxiv.org/abs/2004.12538" style="text-decoration: none;">"Interpreting Deep Temporal Neural Networks
+by Selective Visualization of Internally Activated Nodes"</a><br><strong>Sohee Cho, Ginkyeng Lee, Wonjoon Chang and Jaesik Choi</strong>
+</p>
+</header>
+
+<!-- About Container -->
+<div class="w3-container" id="CPHAP">
+  <div class="w3-content" >
+    <h4 class="w3-padding-64">Clustered Pattern of Highly Activated Nodes (CPHAP)</h4>
+    <p class="w3-text-grey">Recently deep neural networks have demonstrated competitive performance in classification and regression tasks for sequential data. However, it is still hard to understand which temporal patterns the internal channels of deep neural networks see in sequential data. To address this issue, we propose a new framework, CPHAP, to visualize temporal representations learned in deep neural networks without hand-crafted segmentation labels. Our framework extracts highly activated temporal regions and characterizes them as representative temporal patterns. Furthermore, our framework shows the representative temporal pattern with the uncertainty. It enables users to identify whether the input has been observed frequently in the training data.
+    <img src="figure/main.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <p><strong>Keyword</strong> Time Series, Clustering, Input Attribution, Deep Convolution Neural Network.</p>
+    <p><strong>arxiv</strong> <a href="https://arxiv.org/abs/2004.12538">https://arxiv.org/abs/2004.12538 </a> </p>
+  </div>
+</div>
 
 
+<!-- First Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="Exp1">
+  <div class="w3-content">
+    <h3 class="w3-padding-64">CPHAP Results of ResNet</h3>
+    <p class="w3-text-grey">The patterns detected by channels in different layer have different lengths. Patterns from lower layers, such as layer 1, layer 2, and layer 3, reflect local changes like short concave shapes. On the other hands, patterns from higher layers, such as layer 7, layer 8, and layer 9, capture global changes like slow upward trends.
+    <img src="figure/resnet_har_1613_1.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <br>
+    <p class="w3-text-grey">Channel 55 in layer 1 detects sharp decreasing patterns and Channel 51 detects sharp increasing patterns. In layer 4 and layer 5, the channels can capture more complex and longer patterns than lower layers. For example, channel 6 in layer 5 and channel 45 in layer 4 detect a 'W' shape as a pattern. This kind of complex patterns can be smoothed in the higher layer. Actually, this 'W' shape is detected as a 'U' shape by channel 6 in layer 7.
+    <img src="figure/resnet_uwave_536_1.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <br>
+    <p class="w3-text-grey"> Given the data sample, channels in lower layers tend to focus on rapid changes or inflection points. For this simple sample, even layer 4 and layer 5 do not capture complex patterns. The channels in the higher layers recognize extreme changes in softer patterns.
+    <img src="figure/resnet_uwave_571_1.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <br>    
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container" id="Exp2">
+  <div class="w3-content">
+    <h3 class="w3-padding-64">Comparison of Various Filter Size</h3>
+    <p class="w3-text-grey">The longer convolution filters are, the longer patterns are. The longer filter is appropriate for capturing global trends. If a dataset has complex oscillation, it would be better to use shorter filter in order to detect local features.
+    <img src="figure/resnet_longerfilter_1.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <img src="figure/resnet_har_7730_1.png" style="width:100%;max-width:1000px" class="w3-margin-top">   
+  </div>
+</div>
+
+<!-- Third Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="Exp3">
+  <div class="w3-content">
+    <h3 class="w3-padding-64">VCPHAP in Test Dataset</h3>
+    <p class="w3-text-grey">CPHAP works well in the test dataset, which is not used to train the pattern clusters. Figure 9 (1) shows when CPHAP is well matched with new test data. On the other hands, Figure 9 (2) shows examples of less-matched patterns. Note that there are certain points where the actual data deviate from the assigned pattern for each less-matched example. Actually, we can identify that the distribution of each pattern, which is obtained from training dataset, has the large uncertainty on those points in Figure 9 (c). It supports that our framework is valid for capturing uncertainties in sub-sequences that activate specific channels.
+    <img src="figure/well-mis_2.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+  </div>
+</div>
+
+<!-- 4th Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container" id="Exp2">
+  <div class="w3-content">
+    <h3 class="w3-padding-64">Various Methods to Visualize Important Regions</h3>
+    <p class="w3-text-grey">we visually compare CPHAP with other methods that interpret neural networks. Since CAM can interpret only the last layer of CNNs and Network Dissection requires pre-defined concepts (e.g. object, texture, color) in order to explain the internal processes of CNNs, it is hard to directly apply these methods to explain internal activations in neural networks for time-series data. However, we can follow these methods in the similar manner. Both CAM and Network Dissection use the activation map to get the important area and upsample it to map toward the original input size. Inspired by this process, we upsample the channel activation first. Then, we highlight the important area with heatmap like CAM or turn off partial regions where the activation value is under the threshold like Network Dissection. The details of Channel-LRP is described in the Section 4.2 of the main paper.
+    <img src="figure/compare_xaimethod.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+<!--   <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div> -->
+ <p>Powered by <a href="http://xai.kaist.ac.kr/" target="_blank">XAIC</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
 
 </body>
 </html>
