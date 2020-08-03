@@ -88,14 +88,14 @@ by Selective Visualization of Internally Activated Nodes"</a>
 <!-- Third Grid -->
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="Exp3">
   <div class="w3-content">
-    <h3 class="w3-padding-64">VCPHAP in Test Dataset</h3>
+    <h3 class="w3-padding-64">CPHAP in Test Dataset</h3>
     <p class="w3-text-grey">CPHAP works well in the test dataset, which is not used to train the pattern clusters. Figure 9 (1) shows when CPHAP is well matched with new test data. On the other hands, Figure 9 (2) shows examples of less-matched patterns. Note that there are certain points where the actual data deviate from the assigned pattern for each less-matched example. Actually, we can identify that the distribution of each pattern, which is obtained from training dataset, has the large uncertainty on those points in Figure 9 (c). It supports that our framework is valid for capturing uncertainties in sub-sequences that activate specific channels.
     <img src="figure/well-mis_2.png" style="width:100%;max-width:1000px" class="w3-margin-top">
   </div>
 </div>
 
 <!-- 4th Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container" id="Exp2">
+<div class="w3-row-padding w3-padding-64 w3-container" id="Exp4">
   <div class="w3-content">
     <h3 class="w3-padding-64">Various Methods to Visualize Important Regions</h3>
     <p class="w3-text-grey">we visually compare CPHAP with other methods that interpret neural networks. Since CAM can interpret only the last layer of CNNs and Network Dissection requires pre-defined concepts (e.g. object, texture, color) in order to explain the internal processes of CNNs, it is hard to directly apply these methods to explain internal activations in neural networks for time-series data. However, we can follow these methods in the similar manner. Both CAM and Network Dissection use the activation map to get the important area and upsample it to map toward the original input size. Inspired by this process, we upsample the channel activation first. Then, we highlight the important area with heatmap like CAM or turn off partial regions where the activation value is under the threshold like Network Dissection. The details of Channel-LRP is described in the Section 4.2 of the main paper.
