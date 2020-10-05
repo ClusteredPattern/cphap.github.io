@@ -35,6 +35,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#Exp2" class="w3-bar-item w3-button w3-padding-large">Exp 2</a>
     <a href="#Exp3" class="w3-bar-item w3-button w3-padding-large">Exp 3</a>
     <a href="#Exp4" class="w3-bar-item w3-button w3-padding-large">Exp 4</a>
+    <a href="#Exp4" class="w3-bar-item w3-button w3-padding-large">Exp 5</a>
   </div>
 </div>
 
@@ -98,8 +99,30 @@ by Selective Visualization of Internally Activated Nodes"</a>
 <div class="w3-row-padding w3-padding-64 w3-container" id="Exp4">
   <div class="w3-content">
     <h3 class="w3-padding-64">Various Methods to Visualize Important Regions</h3>
-    <p class="w3-text-grey">we visually compare CPHAP with other methods that interpret neural networks. Since CAM can interpret only the last layer of CNNs and Network Dissection requires pre-defined concepts (e.g. object, texture, color) in order to explain the internal processes of CNNs, it is hard to directly apply these methods to explain internal activations in neural networks for time-series data. However, we can follow these methods in the similar manner. Both CAM and Network Dissection use the activation map to get the important area and upsample it to map toward the original input size. Inspired by this process, we upsample the channel activation first. Then, we highlight the important area with heatmap like CAM or turn off partial regions where the activation value is under the threshold like Network Dissection. The details of Channel-LRP is described in the Section 4.2 of the main paper.
+    <p class="w3-text-grey"> we visually compare CPHAP with other methods that interpret neural networks. Since CAM can interpret only the last layer of CNNs and Network Dissection requires pre-defined concepts (e.g. object, texture, color) in order to explain the internal processes of CNNs, it is hard to directly apply these methods to explain internal activations in neural networks for time-series data. However, we can follow these methods in the similar manner. Both CAM and Network Dissection use the activation map to get the important area and upsample it to map toward the original input size. Inspired by this process, we upsample the channel activation first. Then, we highlight the important area with heatmap like CAM or turn off partial regions where the activation value is under the threshold like Network Dissection. The details of Channel-LRP is described in the Section 4.2 of the main paper.
     <img src="figure/compare_xaimethod.png" style="width:100%;max-width:1000px" class="w3-margin-top">
+  </div>
+</div>
+
+
+<!-- 5th Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="Exp4">
+  <div class="w3-content">
+    <img src="figure/cphap_lrp.png" style="width:100%;max-width:1000px" class="w3-margin-top"> To verify effectiveness and user reliability of our work, we apply CPHAP to a real-world audio dataset (urbansound8k and Speech ReconitionDataset). In figure 10, Sound spectrogram from CPHAP has more natural frequency by suggesting continuous sub-sequence, while the result of LRP method has muted areas that may cause unnatural sound. We think that time continuity is an essential characteristic to understand time series. So, CPHAP provides users with more robust interpretations through sequential information for such real world time series data as audio and speech data. You can check audio file and further examples in our webpage
+
+    <p class="w3-text-grey"> Original Sound a word "happy"</p>
+    <audio controls>
+      <source src="wav/wav_raw.wav" type="audio/wav">
+    </audio>
+    <p class="w3-text-grey"> Significant Period from CPHAP which sounds like "ae" </p>
+    <audio controls>
+      <source src="wav/wav_cphap_pattern.wav" type="audio/wav">
+    </audio>
+    <p class="w3-text-grey"> Significant Period from LRP</p>
+    <audio controls>
+      <source src="wav/wav_lrp.wav" type="audio/wav">
+    </audio>
+
   </div>
 </div>
 
